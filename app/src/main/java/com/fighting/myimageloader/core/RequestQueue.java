@@ -20,7 +20,7 @@ public class RequestQueue {
 
     private AtomicInteger mSerialNumGenerator = new AtomicInteger(0);
 
-    public static int DEFAULT_CORE_NUMS = Runtime.getRuntime().availableProcessors() + 1;
+    private static int DEFAULT_CORE_NUMS = Runtime.getRuntime().availableProcessors() + 1;
 
     private int mDispatchNums = DEFAULT_CORE_NUMS;
 
@@ -34,7 +34,7 @@ public class RequestQueue {
         mDispatchNums = coreNums;
     }
 
-    private void stop() {
+    public void stop() {
         if (mDispatchers != null && mDispatchers.length > 0) {
             for (RequestDispatcher mDispatcher : mDispatchers) {
                 mDispatcher.interrupt();

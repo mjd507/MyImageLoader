@@ -64,6 +64,14 @@ public class MyImageLoader {
         mImageQueue.addRequest(request);
     }
 
+    public ImageLoaderConfig getConfig(){
+        return mConfig;
+    }
+
+    public void stop(){
+        mImageQueue.stop();
+    }
+
     public interface ImageListener {
         void onComplete(ImageView imageView, Bitmap bitmap, String url);
     }

@@ -22,6 +22,7 @@ public class BitmapRequest {
     private String imageUriMd5;
     public boolean isCancel;
     public int serialNum;
+    public boolean justCacheInMem;
 
     public BitmapRequest(ImageView imageView, String uri, DisplayConfig config, MyImageLoader.ImageListener listener) {
         mImageViewRef = new WeakReference<ImageView>(imageView);
