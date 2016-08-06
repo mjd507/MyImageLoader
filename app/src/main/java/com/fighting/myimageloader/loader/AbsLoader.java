@@ -30,21 +30,22 @@ public abstract class AbsLoader implements Loader {
 
         deliverToUIThread(request, resultBitmap);
 
-    }
-    protected void showLoading(BitmapRequest request){
 
     }
+
+    protected void showLoading(BitmapRequest request) {
+
+    }
+
     protected abstract Bitmap onLoadImage(BitmapRequest request);
 
-    protected void cacheBitmap(BitmapRequest request, Bitmap bitmap){
-
-    }
-    protected void deliverToUIThread(BitmapRequest request, Bitmap resultBitmap){
+    protected void cacheBitmap(BitmapRequest request, Bitmap bitmap) {
 
     }
 
+    protected void deliverToUIThread(BitmapRequest request, Bitmap resultBitmap) {
 
-
+    }
 
 
 }

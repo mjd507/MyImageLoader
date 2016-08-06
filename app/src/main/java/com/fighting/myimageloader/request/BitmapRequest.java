@@ -33,4 +33,11 @@ public class BitmapRequest {
         imageUriMd5 = MD5Utils.toMD5(uri);
     }
 
+    public int getImageViewWidth() {
+    return  0;
+}
+
+    public int getImageViewHeight() {
+        return  0;
+    }
 }
