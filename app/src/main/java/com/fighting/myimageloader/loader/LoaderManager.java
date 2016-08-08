@@ -1,5 +1,8 @@
 package com.fighting.myimageloader.loader;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * 描述：
  * Created by MaJD on 2016/8/4.
@@ -8,8 +11,14 @@ package com.fighting.myimageloader.loader;
 public class LoaderManager {
 
     private static LoaderManager mLoaderManager;
-
+    private static final String HTTP = "http";
+    private static final String HTTPS = "https";
+    private static final String FILE = "file";
+    private Map<String, Loader> mLoaderMap = new HashMap<String, Loader>();
     private LoaderManager() {
+        mLoaderMap.put(HTTP,new UrlLoader());
+        mLoaderMap.put(HTTPS,new UrlLoader());
+        mLoaderMap.put(FILE,new LocalLoader());
     }
 
     public static LoaderManager getInstance() {
@@ -23,15 +32,11 @@ public class LoaderManager {
         return mLoaderManager;
     }
 
-    public static Loader getLoader(String schema) {
-        switch (schema) {
-            case "http":
-            case "https":
-                return new UrlLoader();
-            case "file":
-                return new LocalLoader();
-            default:
-                return new NullLoader();
+    public Loader getLoader(String schema) {
+        if(mLoaderMap.containsKey(schema)){
+            return mLoaderMap.get(schema);
+        }else {
+            return new NullLoader();
         }
     }
 }
