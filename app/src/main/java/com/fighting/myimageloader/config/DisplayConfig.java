@@ -6,6 +6,6 @@ package com.fighting.myimageloader.config;
  */
 
 public class DisplayConfig {
-    public int loadingResId;
-    public int failedResId;
+    public int loadingResId = -1;
+    public int failedResId = -1;
 }

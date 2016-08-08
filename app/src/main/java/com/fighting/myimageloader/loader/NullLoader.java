@@ -1,5 +1,7 @@
 package com.fighting.myimageloader.loader;
 
+import android.graphics.Bitmap;
+
 import com.fighting.myimageloader.request.BitmapRequest;
 
 /**
@@ -8,4 +10,8 @@ import com.fighting.myimageloader.request.BitmapRequest;
  */
 
 public class NullLoader extends AbsLoader{
+    @Override
+    protected Bitmap onLoadImage(BitmapRequest request) {
+        return null;
+    }
 }

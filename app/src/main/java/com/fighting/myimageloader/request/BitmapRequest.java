@@ -27,6 +27,7 @@ public class BitmapRequest implements Comparable<BitmapRequest> {
     public boolean isCancel;
     public boolean justCacheInMem;
     LoadPolicy mLoadPolicy = MyImageLoader.getInstance().getConfig().loadPolicy;
+    private ImageView imageView;
 
     public BitmapRequest(ImageView imageView, String uri, DisplayConfig config, MyImageLoader.ImageListener listener) {
         mImageViewRef = new WeakReference<ImageView>(imageView);
@@ -38,7 +39,7 @@ public class BitmapRequest implements Comparable<BitmapRequest> {
 
     }
 
-    public void setLoadPolicy(LoadPolicy policy){
+    public void setLoadPolicy(LoadPolicy policy) {
         mLoadPolicy = policy;
     }
 
@@ -53,5 +54,13 @@ public class BitmapRequest implements Comparable<BitmapRequest> {
     @Override
     public int compareTo(BitmapRequest another) {
         return mLoadPolicy.compare(this, another);
+    }
+
+    public ImageView getImageView() {
+        return mImageViewRef.get();
+    }
+
+    public boolean isImageViewTagValid() {
+        return mImageViewRef.get() != null && mImageViewRef.get().getTag().equals(imageUri);
     }
 }
