@@ -20,10 +20,10 @@ import java.util.Comparator;
 public class BitmapRequest implements Comparable<BitmapRequest> {
     public int serialNum;
     public DisplayConfig displayConfig;
-    private Reference<ImageView> mImageViewRef;
-    private MyImageLoader.ImageListener mImageListener;
+    public Reference<ImageView> mImageViewRef;
+    public MyImageLoader.ImageListener mImageListener;
     public String imageUri;
-    private String imageUriMd5;
+    public String imageUriMd5;
     public boolean isCancel;
     public boolean justCacheInMem;
     LoadPolicy mLoadPolicy = MyImageLoader.getInstance().getConfig().loadPolicy;
