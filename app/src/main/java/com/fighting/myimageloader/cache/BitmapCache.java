@@ -11,4 +11,8 @@ import com.fighting.myimageloader.request.BitmapRequest;
 
 public interface BitmapCache {
     Bitmap get(BitmapRequest request);
+
+    void put(BitmapRequest key, Bitmap bitmap);
+
+    void remove(BitmapRequest key);
 }
